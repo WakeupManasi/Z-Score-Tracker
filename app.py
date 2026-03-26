@@ -599,9 +599,10 @@ if r is None:
 
 latest_z = r["ewma_z"].dropna().iloc[-1]
 latest_s = r["signals"].iloc[-1]
-stationary = r["adf"]["stationary"]
-adf_crit   = r["adf"][f"critical_{adf_sig.rstrip('%')}"]
-
+adf_p_thresh = {"1%": 0.01, "5%": 0.05, "10%": 0.10}
+adf_crit_key = {"1%": "critical_1", "5%": "critical_5", "10%": "critical_10"}
+stationary   = r["adf"]["p_value"] < adf_p_thresh[adf_sig]
+adf_crit     = r["adf"][adf_crit_key[adf_sig]]
 if not stationary:
     banner_cls = "signal-neutral"
     signal_txt = "⚠️  NON-STATIONARY — TRADE BLOCKED"
