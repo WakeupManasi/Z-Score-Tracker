@@ -111,7 +111,23 @@ Suggested cointegrated pairs:
 | `ADF Significance` | Significance level for stationarity | 5% |
 | `Transaction Cost` | Round-trip cost in basis points | 5bps |
 
----
+--📉 Backtesting Logic
+## 📉 Backtesting Logic
+
+The engine simulates trading performance using:
+
+- Entry/exit based on Z-score thresholds
+- Position sizing based on hedge ratio
+- Transaction cost modeling (bps)
+- Cumulative PnL tracking
+
+### Performance Metrics
+
+- Total Return
+- Sharpe Ratio (optional extension)
+- Max Drawdown
+- Win Rate
+-
 This project demonstrates a practical implementation of statistical arbitrage using robust quantitative methods. 
 It combines financial theory with real-time visualization to create an intuitive trading research tool.
 
